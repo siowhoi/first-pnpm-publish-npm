@@ -1,28 +1,29 @@
 {
   "name": "first-print-hello-npm",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "scripts": {
     "build": "npm run build:js && npm run build:types",
-	"build:js": "esbuild --outdir=lib --platform=node --bundle src/index.ts",
-	"build:types": "tsc --emitDeclarationOnly",
-	"prettier": "prettier --write src/**/*.ts",
-	"version": "npm version --no-git-tag-version"
+    "build:js": "esbuild --outdir=lib --platform=node --bundle src/index.ts",
+    "build:types": "tsc --emitDeclarationOnly",
+    "prettier": "prettier --write src/**/*.ts",
+    "version": "npm version",
+    "postversion": "git push && git push --tags"
   },
   "main": "lib/index.js",
-	"source": "src/index.ts",
-	"directories": {
-		"lib": "lib"
-	},
-	"files": [
-		"lib"
-	],
+  "source": "src/index.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-		"@types/node": "20.2.5",
-		"esbuild": "0.15.5",
-		"typescript": "5.0.2"
-	}
+    "@types/node": "20.2.5",
+    "esbuild": "0.15.5",
+    "typescript": "5.0.2"
+  }
 }
