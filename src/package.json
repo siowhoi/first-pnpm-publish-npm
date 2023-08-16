@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "concurrently \"pnpm build:types\" \"pnpm build:js\"",
-		"build:types": "turbo --filter \"!./examples/**\" build:types",
-		"build:js": "turbo --filter \"!./examples/**\" build:js",
+		"build:types": "turbo build:types",
+		"build:js": "turbo build:js",
 		"build:watch": "concurrently -prefix \"none\" \"pnpm build:js --watch\" \"pnpm -r build:types\"",
 		"clean": "./clean.sh && pnpm build",
 		"format": "pnpm prettier",
