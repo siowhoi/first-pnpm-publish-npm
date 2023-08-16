@@ -1,6 +1,5 @@
 {
   "name": "first-pnpm-publish-npm-monorepo",
-  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
