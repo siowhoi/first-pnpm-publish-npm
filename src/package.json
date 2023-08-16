@@ -9,7 +9,7 @@
 		"build:watch": "concurrently -prefix \"none\" \"pnpm build:js --watch\" \"pnpm -r build:types\"",
 		"clean": "./clean.sh && pnpm build",
 		"format": "pnpm prettier",
-		"prettier": "prettier --write \"*.[tj]s\" \"packages/**/*.[tj]s\" \"examples/**/*.[tj]s\"",
+		"prettier": "prettier --write \"*.[tj]s\" \"packages/**/*.[tj]s\"",
 		"publish:packages": "pnpm build && pnpm -r publish --no-git-checks --access public",
 		"publish:dry": "pnpm build && pnpm -r publish --no-git-checks --access public --dry-run",
 		"lint": "eslint . --ext .js,.jsx,.ts,.tsx",
