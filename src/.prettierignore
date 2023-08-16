@@ -1,0 +1,4 @@
+**/packages/**/.deploy
+**/packages/**/coverage
+**/packages/**/lib
+**/packages/**/build

@@ -1,0 +1,13 @@
+{
+  "folders": [
+    {
+      "name": "✨ root",
+      "path": "."
+    },
+    {
+      "name": "📦 first-print-hello-npm",
+      "path": "src/packages/first-print-hello-npm"
+    },
+  ],
+  "settings": {}
+}
