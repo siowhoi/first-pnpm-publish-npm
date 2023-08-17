@@ -1,3 +1,3 @@
 export const helloNpm = () => {
-	return 'Hello NPM';
+	return 'Hello NPM!';
 };
