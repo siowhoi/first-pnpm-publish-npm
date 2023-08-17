@@ -1,6 +1,6 @@
 {
   "name": "first-print-hello-npm",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "scripts": {
     "build": "npm run build:js && npm run build:types",
