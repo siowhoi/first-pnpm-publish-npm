@@ -1,14 +1,13 @@
 {
   "name": "first-print-hello-npm",
-  "version": "1.0.3",
+  "version": "1.0.9",
   "description": "",
   "scripts": {
     "build": "npm run build:js && npm run build:types",
     "build:js": "esbuild --outdir=lib --platform=node --bundle src/index.ts",
     "build:types": "tsc --emitDeclarationOnly",
     "prettier": "prettier --write src/**/*.ts",
-    "version": "npm version",
-    "postversion": "git push && git push --tags"
+    "version": "npm version"
   },
   "main": "lib/index.js",
   "source": "src/index.ts",
