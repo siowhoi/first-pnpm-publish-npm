@@ -2,13 +2,32 @@ name: 🚀 Release package
 on:
   workflow_dispatch:
     inputs:
-      release-type:
-        description: "Release type (one of): patch, minor, major"
+      input_version:
+        description: "Release version (e.g., 1.0.0)"
         required: true
 env:
   CI: true
 jobs:
+  validate_input:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate Release Version Input Format
+        id: validate
+        run: |
+          input_version="${{ github.event.inputs.input_version }}"
+
+          # Regular expression pattern for "1.0.0" format
+          pattern='^\d+\.\d+\.\d+$'
+
+          if [[ ! $input_version =~ $pattern ]]; then
+            echo "Input version does not match the expected format (1.0.0)"
+            exit 1
+          fi
+
+          echo "Release Version input is valid"
+
   release:
+    needs: validate_input
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -53,11 +72,10 @@ jobs:
       # Use tag latest
       - name: Bump release version
         run: |
-          pnpm version:bump $RELEASE_TYPE
-          echo "NEW_VERSION=$(npm --no-git-tag-version version $RELEASE_TYPE)" >> $GITHUB_ENV
+          pnpm version:bump $INPUT_VERSION
           echo "RELEASE_TAG=latest" >> $GITHUB_ENV
         env:
-          RELEASE_TYPE: ${{ github.event.inputs.release-type }}
+          INPUT_VERSION: ${{ github.event.inputs.input_version }}
 
       # Publish version to public repository
       - name: Publish package on NPM 📦
@@ -76,6 +94,6 @@ jobs:
       - name: Update GitHub release documentation
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ env.NEW_VERSION }}
+          tag_name: ${{ env.INPUT_VERSION }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
