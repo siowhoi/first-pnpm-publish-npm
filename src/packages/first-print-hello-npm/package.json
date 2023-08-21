@@ -2,6 +2,8 @@
   "name": "first-print-hello-npm",
   "version": "1.1.0",
   "description": "",
+  "repository": "github:siowhoi/first-pnpm-publish-npm",
+  "homepage": "https://github.com/siowhoi/first-pnpm-publish-npm#readme",
   "scripts": {
     "build": "npm run build:js && npm run build:types",
     "build:js": "esbuild --outdir=lib --platform=node --bundle src/index.ts",
